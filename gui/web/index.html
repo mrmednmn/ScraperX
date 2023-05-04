@@ -1,0 +1,1946 @@
+<html dir="ltr" class="light" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="./lib/toastr.min.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="./lib/toastr.min.js"></script>
+
+    <title>ScraperX</title>
+
+    <style>
+        .click-drop-down {
+            display: flex;
+            width: auto;
+            justify-content: end;
+        }
+
+        .flex.items-baseline.sm\:mt-0 {
+            justify-content: space-between;
+            flex-direction: row-reverse;
+        }
+
+        .svg-register-mobile {
+            /* position: relative; */
+            /* left: 49px; */
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+        }
+
+        .SelectedDbCheckBoxClass {
+            display: flex;
+            flex-direction: inherit;
+            justify-content: center;
+            align-items: center;
+            justify-self: flex-end;
+            position: relative;
+            right: 158px;
+            /* top: 2px; */
+        }
+
+            .SelectedDbCheckBoxClass p {
+                margin-left: 9px;
+                font-size: .875rem;
+            }
+
+        .wrap-table100 {
+            max-width: fit-content;
+            margin: 0 auto;
+            min-height: fit-content;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding: 33px 100px;
+            width: 100%;
+            height: 100%;
+            z-index: 99999999999;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        div#blackBackground2 {
+            z-index: 100;
+        }
+
+        .clickabale {
+            cursor: pointer;
+        }
+
+        .wrap-table100 {
+            box-shadow: 0px 5px 11px 5px #4e4e4e;
+            border-radius: 28px;
+        }
+
+        .customerdtailespopup {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 99999999999;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .table100 {
+            border-top-right-radius: 28px;
+            border-bottom-left-radius: 28px;
+        }
+
+        nav#ChoicesContanainerId a svg {
+            margin-right: 0.75rem;
+        }
+
+        .wrap-table100-nextcols {
+            border-radius: 24px;
+        }
+
+        div#divToShow {
+            padding: 10px;
+            background-color: white;
+            border: 1px sloid #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: fit-content;
+            z-index: 99999;
+            border: 1px solid #bbb;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        thead {
+            border: 1px solid #eee;
+        }
+
+        tr:hover {
+            background-color: whitesmoke;
+            cursor: pointer;
+        }
+
+        tbody tr td {
+            padding: 14px;
+            border: 1px solid #eee;
+        }
+
+        thead tr th {
+            padding: 14px;
+            border: 1px solid #eee;
+        }
+
+        tfoot tr td {
+            padding: 14px;
+            border: 1px solid #eee;
+        }
+
+        .svbtn button {
+            /* width: 120px; */
+            /* padding: 17px; */
+            width: 105px;
+            height: 46px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .svbtn {
+            /* align-self: flex-end; */
+            /* position: relative; */
+            /* left: 89%; */
+            margin-top: 7px;
+            /* width: 115px; */
+        }
+
+        .inputs input {
+            width: 44%;
+        }
+
+        .inputs {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .downn {
+            width: fit-content;
+            float: right;
+            /* margin-bottom: 9px; */
+            margin-top: 11px;
+            margin-right: 5px;
+            /* color: rgb(204, 204, 204); */
+        }
+
+        .f1 {
+            width: 47%;
+            margin-right: 14px;
+            margin-bottom: 13px;
+        }
+
+        button#btn {
+            background-color: #cccccc;
+            padding: 20px;
+            width: 120px;
+            border-radius: 13px;
+        }
+
+        .fields {
+            display: flex;
+            grid-auto-columns: repeat(2,auto);
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hide {
+            display: none !important;
+        }
+
+        .drop-down {
+            background-color: #ffffff;
+            border: 1px dotted #b7b7b7;
+            opacity: 0;
+            margin-right: 7px;
+            padding: 8px;
+        }
+
+            .drop-down p {
+                cursor: pointer;
+            }
+
+            .drop-down ul li {
+                margin-top: 6px;
+                cursor: pointer;
+                width: 100%;
+                text-align: center;
+            }
+
+                .drop-down ul li:first-child {
+                    /* color: red; */
+                    border-bottom: 1px solid #dadada;
+                    /* margin-bottom: 10px; */
+                    padding-bottom: 3px;
+                }
+
+        span.msg,
+        span.choose {
+            color: #555;
+            padding: 5px 0 10px;
+            display: inherit
+        }
+
+        .container {
+            width: 500px;
+            margin: 16px auto 0;
+            text-align: center
+        }
+
+        .cented-input {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        /*Styling Selectbox*/
+        .ddl-select {
+            visibility: hidden;
+        }
+
+        .ddl {
+            position: relative;
+            height: 50px;
+            width: 44%;
+            text-align: initial;
+        }
+
+            .ddl::after {
+                content: '';
+                position: absolute;
+                top: 25px;
+                right: 20px;
+                width: 12px;
+                height: 2px;
+                background: #555;
+                z-index: 99;
+                transform: rotate(-40deg);
+                transition: 0.5s;
+            }
+
+            .ddl::before {
+                content: '';
+                position: absolute;
+                top: 25px;
+                right: 28px;
+                width: 12px;
+                height: 2px;
+                background: #555;
+                z-index: 99;
+                transform: rotate(40deg);
+                transition: 0.5s;
+            }
+
+            .ddl.active::after {
+                right: 28px;
+            }
+
+            .ddl.active::before {
+                right: 20px;
+            }
+
+        .ddl-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            border-radius: 10px;
+            padding: 10px 20px;
+            outline: none;
+            background: #fff;
+            border: 1px solid #e9e9e9;
+        }
+
+        .ddl.active .ddl-options {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .ddl .ddl-options {
+            position: absolute;
+            width: 100%;
+            top: 55px;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.25s;
+            z-index: 999;
+            border: 1px solid #e9e9e9;
+            box-shadow: 0 0 5px rgba(0,0,0,0.10);
+        }
+
+            .ddl .ddl-options > div {
+                padding: 10px 20px;
+                cursor: pointer;
+            }
+
+                .ddl .ddl-options > div:not(:first-child):hover {
+                    background: #0d6efd;
+                    color: #fff;
+                }
+
+        .fixed.right-4.bottom-\[75px\].z-40.cta.mb-4.flex-shrink-0.sm\:relative.sm\:bottom-auto.sm\:right-auto {
+            display: flex;
+            flex-direction: column;
+            width: 100m;
+            height: 100%;
+            position: relative;
+        }
+
+        .hide2 {
+            visibility: hidden;
+        }
+
+        body {
+            /* green--500*/
+            --booking-highlight-color: #10B981;
+            /*  gray--200 */
+            --booking-lightest-color: #E1E1E1;
+            /* gray--400 */
+            --booking-lighter-color: #ACACAC;
+            /* gray--500 */
+            --booking-light-color: #888888;
+            /* gray--600 */
+            --booking-median-color: #494949;
+            /* gray--800 */
+            --booking-dark-color: #313131;
+            /* gray--900 */
+            --booking-darker-color: #292929;
+            --brand-color: #292929;
+            --brand-text-color: #ffffff;
+            --brand-color-dark-mode: #fafafa;
+            --brand-text-color-dark-mode: #292929;
+        }
+
+        span.h-9.w-9.ltr\:mr-2.rtl\:ml-3.relative.flex-shrink-0.rounded-full.bg-gray-300 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* width: 100%; */
+        }
+    </style>
+
+    <meta name="next-head-count" content="20">
+    <link rel="preload" href="/cal.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+    <meta name="msapplication-TileColor" content="#ff0000">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preload" href="/fonts/Inter-roman.var.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/cal.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="css/8d971b43277fd09c.css" as="style">
+    <link rel="stylesheet" href="css/8d971b43277fd09c.css" data-n-g="">
+    <noscript data-n-css=""></noscript>
+    <style data-n-href="css/2a401719df272a7f.css" media="x">
+        .clickabale
+        .glide {
+            position: relative;
+            width: 100%;
+            box-sizing: border-box
+        }
+
+        .glide * {
+            box-sizing: inherit
+        }
+
+        .glide__slides,
+        .glide__track {
+            overflow: hidden
+        }
+
+        .glide__slides {
+            position: relative;
+            width: 100%;
+            list-style: none;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            touch-action: pan-Y;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+            display: flex;
+            flex-wrap: nowrap;
+            will-change: transform
+        }
+
+        .glide__slide,
+        .glide__slides--dragging {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none
+        }
+
+        .glide__slide {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            white-space: normal;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent
+        }
+
+            .glide__slide a {
+                -webkit-user-select: none;
+                user-select: none;
+                -webkit-user-drag: none;
+                -moz-user-select: none;
+                -ms-user-select: none
+            }
+
+        .glide__arrows,
+        .glide__bullets {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none
+        }
+
+        .glide--rtl {
+            direction: rtl
+        }
+
+        .glide__arrow {
+            position: absolute;
+            display: block;
+            top: 50%;
+            z-index: 2;
+            color: #fff;
+            text-transform: uppercase;
+            padding: 9px 12px;
+            background-color: transparent;
+            border: 2px solid hsla(0, 0%, 100%, .5);
+            border-radius: 4px;
+            box-shadow: 0 .25em .5em 0 rgba(0, 0, 0, .1);
+            text-shadow: 0 .25em .5em rgba(0, 0, 0, .1);
+            opacity: 1;
+            cursor: pointer;
+            transition: opacity .15s ease, border .3s ease-in-out;
+            transform: translateY(-50%);
+            line-height: 1
+        }
+
+            .glide__arrow:focus {
+                outline: none
+            }
+
+            .glide__arrow:hover {
+                border-color: #fff
+            }
+
+        .glide__arrow--left {
+            left: 2em
+        }
+
+        .glide__arrow--right {
+            right: 2em
+        }
+
+        .glide__arrow--disabled {
+            opacity: .33
+        }
+
+        .glide__bullets {
+            position: absolute;
+            z-index: 2;
+            bottom: 2em;
+            left: 50%;
+            display: inline-flex;
+            list-style: none;
+            transform: translateX(-50%)
+        }
+
+        .glide__bullet {
+            background-color: hsla(0, 0%, 100%, .5);
+            width: 9px;
+            height: 9px;
+            padding: 0;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            transition: all .3s ease-in-out;
+            cursor: pointer;
+            line-height: 0;
+            box-shadow: 0 .25em .5em 0 rgba(0, 0, 0, .1);
+            margin: 0 .25em
+        }
+
+            .glide__bullet:focus {
+                outline: none
+            }
+
+            .glide__bullet:focus,
+            .glide__bullet:hover {
+                border: 2px solid #fff;
+                background-color: hsla(0, 0%, 100%, .5)
+            }
+
+        .glide__bullet--active {
+            background-color: #fff
+        }
+
+        .glide--swipeable {
+            cursor: grab;
+            cursor: -webkit-grab
+        }
+
+        .glide--dragging {
+            cursor: grabbing;
+            cursor: -webkit-grabbing
+        }
+    </style>
+    <style id="_goober">
+        @keyframes go2264125279 {
+            from {
+                transform: scale(0) rotate(45deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) rotate(45deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes go3020080000 {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes go463499852 {
+            from {
+                transform: scale(0) rotate(90deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) rotate(90deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes go1268368563 {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes go1310225428 {
+            from {
+                transform: scale(0) rotate(45deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) rotate(45deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes go651618207 {
+            0% {
+                height: 0;
+                width: 0;
+                opacity: 0;
+            }
+
+            40% {
+                height: 0;
+                width: 6px;
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 1;
+                height: 10px;
+            }
+        }
+
+        @keyframes go901347462 {
+            from {
+                transform: scale(0.6);
+                opacity: 0.4;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .go4109123758 {
+            z-index: 9999;
+        }
+
+            .go4109123758 > * {
+                pointer-events: auto;
+            }
+
+        @media(max-width: 600px) {
+            .drop-down {
+                margin-right: 24px !important;
+            }
+
+            .fields {
+                flex-direction: column;
+            }
+        }
+
+        @media(max-width: 630px) {
+            .f1 {
+                width: auto !important;
+            }
+        }
+
+        @media(max-width: 512px) {
+            .min-w-\[360px\] {
+                min-width: 96% !important;
+            }
+
+            .cented-input {
+                justify-content: center !important;
+                width: 100%;
+                flex-direction: column;
+                align-items: center !important;
+            }
+
+            .ddl {
+                margin-bottom: 15px;
+            }
+        }
+
+
+        /* start maaroff elemnts css */
+        @media (min-width: 992px) {
+            .search-block-notActive {
+                max-width: 360px;
+            }
+        }
+
+        .search-block-notActive {
+            background: rgba(255,255,255,.4);
+            border: 1px solid #e1e6ea;
+            width: 44%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .ppp {
+            padding: 0.5rem;
+        }
+
+        .mb-3 {
+            margin-bottom: 1rem !important;
+        }
+
+        .cursor-pointer {
+            cursor: pointer;
+        }
+
+        label {
+            display: inline-block;
+        }
+
+
+        .form-check-input[type=radio] {
+            border-radius: 50%;
+        }
+
+        .form-check-input {
+            cursor: pointer;
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem !important;
+        }
+
+        .form-check-input {
+            width: 1.5em;
+            height: 1.5em;
+            margin-top: 0;
+            vertical-align: top;
+            background-color: #fff;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border: 1px solid rgba(0,0,0,.25);
+            -webkit-appearance: none;
+            appearance: none;
+            -webkit-print-color-adjust: exact;
+            color-adjust: exact;
+        }
+
+        .row {
+            --bs-gutter-x: 1.5rem;
+            --bs-gutter-y: 0;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: calc(-1 * var(--bs-gutter-y));
+            margin-right: calc(-.5 * var(--bs-gutter-x));
+            margin-left: calc(-.5 * var(--bs-gutter-x));
+        }
+
+        .search-block-text {
+            font-size: 20px;
+            color: black;
+            padding-right: 20px;
+        }
+
+        .search-block-img {
+            padding-left: 15px;
+            position: absolute;
+            left: 2.25rem;
+        }
+
+        .maarof-drop-down input[id="this-is-input"] {
+            width: 44%;
+        }
+
+
+        .maarof-drop-down {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+            .maarof-drop-down select {
+                width: 44%;
+            }
+
+        select {
+            outline: none;
+        }
+
+        .maaroff-elemnts {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .mmr1 {
+            margin-top: 1rem !important;
+        }
+        /* end maaroff elemnts css */
+    </style>
+    <style data-emotion="css" data-s=""></style>
+
+</head>
+<body class="dark:bg-darkgray-50 desktop-transparent bg-gray-100">
+    <div role="dialog" id="Popup-menu" class="hide fadeIn fixed left-1/2 top-1/2 z-[9998] min-w-[360px] -translate-x-1/2 -translate-y-1/2 rounded bg-white text-left shadow-xl focus-visible:outline-none sm:w-full sm:align-middle p-8 sm:max-w-[35rem] max-h-[560px] overflow-visible overscroll-auto md:h-auto md:max-h-[inherit] overflow-y-auto">
+        <div>
+            <h3 class="leading-20 text-semibold font-cal pb-1 text-xl text-gray-900" id="modal-title">New Scraper</h3>
+            <p class="pb-5 text-sm text-gray-500">
+                Add a customized scrapers, save locations and format.
+            </p>
+            <div class="flex flex-col space-y-6">
+
+                <div class="container">
+
+
+                    <div class="m-5 text-center body">
+                        <div class="col-4 mx-auto cented-input">
+                            <select class="ddl-select" id="list" name="list">
+                                <option>Choose Platform</option>
+                                <option value="1">google map</option>
+                                <option value="2">maroof</option>
+                            </select>
+                            <select class="ddl-select" id="list2" name="list">
+                                <option>Choose extension</option>
+                                <option value="1">xlsx</option>
+                                <option value="2">csv</option>
+                                <option value="3">xml</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div id="gold-or-selver-check-box" class="maaroff-elemnts mmr1 hide">
+                        <label for="inputCr" class="ppp mb-3 cursor-pointer search-block-notActive">
+                            <input type="radio" name="exampleRadios" id="gold-radio" value="option1" class="form-check-input ng-untouched ng-pristine ng-valid">
+                            <span class="search-block-text">ذهبية</span>
+                        </label>
+                        <label for="inputFl" class="ppp mb-3 cursor-pointer search-block-notActive">
+                            <input type="radio" name="exampleRadios" id="silver-radio" value="option2" class="form-check-input ng-untouched ng-pristine ng-valid">
+                            <span class="search-block-text">فضية</span>
+                        </label>
+                    </div>
+
+
+
+                    <div class="maarof-drop-down mb-3 hide" id="maaroff_elemnts_1">
+
+                        <select id="main-work-select" name="two"  class="dropdown-select">
+                            <option value="">اختر تصنيف العمل الرئيسي</option>
+                            <option value="أخرى" onclick="">أخرى</option>
+                            <option value="السيارات">السيارات</option>
+                            <option value="العقارات">العقارات</option>
+                            <option value="الجمال والصحة">الجمال والصحة</option>
+                            <option value="المنزل">المنزل</option>
+                            <option value="خدمات الأعمال">خدمات الأعمال</option>
+                            <option value="حفلات"> حفلات</option>
+                            <option value="أطعمة ومشروبات">أطعمة ومشروبات</option>
+                            <option value="هدايا">هدايا</option>
+                            <option value="التعليم">التعليم</option>
+                            <option value="إلكترونيات">إلكترونيات</option>
+                        </select>
+                        <select id="country-select" name="two" class="dropdown-select">
+                            <option value="اختر المنطقة">اختر المنطقة</option>
+                            <option value="منطقة مكة المكرمة">منطقة مكة المكرمة</option>
+                            <option value="الشرقية">الشرقية</option>
+                            <option value="منطقة المدينة المنورة">منطقة المدينة المنورة</option>
+                            <option value="منطقة تبوك">منطقة تبوك</option>
+                            <option value="الجوف">الجوف</option>
+                            <option value="الحدود الشمالية">الحدود الشمالية</option>
+                            <option value="القصيم">القصيم</option>
+                            <option value="الباحة">الباحة</option>
+                            <option value="منطقة نجران">منطقة نجران</option>
+                            <option value="منطقة جازان">منطقة جازان</option>
+                            <option value="منطقة حائل">منطقة حائل</option>
+                            <option value="منطقة عسير">منطقة عسير</option>
+                            <option value="منطقة الرياض">منطقة الرياض</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="inputs maarof-drop-down mb-3 hide" id="second-work-and-city">
+                        <select id="main-work-select-2" name="two" class="dropdown-select">
+                            <option value="إختر تصنيف العمل الفرعي">إختر تصنيف العمل الفرعي</option>
+                        </select>
+                        <select id="country-select-2" name="two" class="dropdown-select">
+                            <option value="إختر المدينة">إختر المدينة</option>
+
+                        </select>
+                    </div>
+
+                    <div class="inputs">
+                        <input placeholder="folder name" id="Collect-folder-name" class="mb-2 block h-9 border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1 w-full" name="title">
+
+                        <input placeholder="file name" id="collect-file-id" class="mb-2 block h-9  border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1 w-full" name="title">
+                    </div>
+
+                    <div class="inputs">
+                        <textarea id="keyword-list-id" placeholder="Enter keywords, each on a new line" class="mb-2 block h-32 border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1 w-full" name="keywordList"></textarea>
+
+                    </div>
+
+
+
+                    <span class="msg"></span>
+                </div>
+
+                <span class="msg"></span>
+            </div>
+
+            <div class="mt-8 flex flex-row-reverse gap-x-2">
+                <button type="button" id="save_obj_id" onclick="addCollectScraper();" class="inline-flex items-center text-sm font-medium relative h-9 px-4 py-2.5   rounded-md border border-transparent text-white bg-brand-500 hover:bg-brand-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500">Add Scraper</button>
+                <button id="closebtn1" onclick="closeCollectPopUp()" type="button" class="inline-flex items-center text-sm font-medium relative h-9 px-4 py-2.5   rounded-md border border-gray-200 text-brand-900 bg-white hover:bg-gray-100">Cancel</button>
+            </div>
+
+        </div>
+    </div>
+    <div role="dialog" id="Popup-menu-2" class="hide fadeIn fixed left-1/2 top-1/2 z-[9998] min-w-[360px] -translate-x-1/2 -translate-y-1/2 rounded bg-white text-left shadow-xl focus-visible:outline-none sm:w-full sm:align-middle p-8 sm:max-w-[35rem] max-h-[560px] overflow-visible overscroll-auto md:h-auto md:max-h-[inherit] overflow-y-auto">
+        <div>
+            <h3 class="leading-20 text-semibold font-cal pb-1 text-xl text-gray-900" id="modal-title">Add New Scraper</h3>
+            <p class="pb-5 text-sm text-gray-500">
+                Add a customized scrapers, save locations and format.
+            </p>
+            <div class="flex flex-col space-y-6">
+
+                <div class="container">
+                    <span class="choose">Choose</span>
+
+                    <div class="m-5 text-center body">
+                        <div class="col-4 mx-auto cented-input">
+                            <select class="ddl-select" id="wiew-list" name="list">
+                                <option>Choose Platform</option>
+                                <option value="1">google map</option>
+                                <option value="2">maroof</option>
+                            </select>
+                            <select class="ddl-select" id="view-list2" name="list">
+                                <option>Choose extension</option>
+                                <option value="1">xlsx</option>
+                                <option value="2">csv</option>
+                                <option value="3">xml</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="inputs">
+                        <input placeholder="folder name" id="view-folder-name" class="mb-2 block h-9 border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1 w-full" name="title">
+
+                        <input placeholder="file name" id="view-file-name" class="mb-2 block h-9  border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1 w-full" name="title">
+                    </div>
+                    <span class="msg"></span>
+                </div>
+
+                <span class="msg"></span>
+            </div>
+
+            <div class="mt-8 flex flex-row-reverse gap-x-2">
+                <button type="button" id="save_obj_id" class="inline-flex items-center text-sm font-medium relative h-9 px-4 py-2.5   rounded-md border border-transparent text-white bg-brand-500 hover:bg-brand-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500">Save</button>
+                <button id="closebtn2" onclick="closeViewPopUp()" type="button" class="inline-flex items-center text-sm font-medium relative h-9 px-4 py-2.5   rounded-md border border-gray-200 text-brand-900 bg-white hover:bg-gray-100">Cancel</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="divToShow" onclick="" style="display:none">Show More</div>
+    <div data-state="open" id="blackBackground" class="hide fadeIn fixed inset-0 z-40 bg-gray-500 bg-opacity-75 transition-opacity" style="pointer-events: auto;" data-aria-hidden="true" aria-hidden="true"></div>
+
+    <div role="dialog" id="dialog2" aria-describedby="radix-:r36:" aria-labelledby="radix-:r35:" data-state="open" type="creation" class="hide fadeIn fixed left-1/2 top-1/2 z-[9998] min-w-[360px] -translate-x-1/2 -translate-y-1/2 rounded bg-white text-left shadow-xl focus-visible:outline-none sm:w-full sm:align-middle p-8 sm:max-w-[35rem] max-h-[560px] overflow-visible overscroll-auto md:h-auto md:max-h-[inherit] overflow-y-auto" description="Create a new database type for people to book times with." tabindex="-1" style="pointer-events: auto;">
+        <div>
+            <h3 class="leading-20 text-semibold font-cal pb-1 text-xl text-gray-900" id="modal-title">Add a new database</h3>
+            <p class="pb-5 text-sm text-gray-500">Create a new database type for people to book times with.</p>
+            <div class="flex flex-col space-y-6">
+                <form>
+
+                    <div class="mt-3 space-y-6">
+                        <div class="">
+                            <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">database name</label>
+                            <input id="dbnameID" placeholder="france_to_usa_short_stay_visa.vfs" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                        </div>
+                    </div>
+                    <div class="mt-8 flex flex-row-reverse gap-x-2">
+                        <button onclick="CreateNewDb()" type="button" id="oksave" class="inline-flex items-center text-sm font-medium relative h-9 px-4 py-2.5   rounded-md border border-transparent text-white bg-brand-500 hover:bg-brand-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500">Create</button>
+                        <button id="closebtn2" type="button" class="inline-flex items-center text-sm font-medium relative h-9 px-4 py-2.5   rounded-md border border-gray-200 text-brand-900 bg-white hover:bg-gray-100">Finish</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="clickabale" onclick="removeDtailes();">
+    </div>
+
+
+    <div id="__next">
+        <link href="#" rel="preconnect" crossorigin="">
+        <div>
+            <div style="position: fixed; z-index: 9999; inset: 16px; pointer-events: none;"></div>
+        </div>
+        <div class="flex h-screen overflow-hidden" data-testid="dashboard-shell">
+            <aside class="desktop-transparent hidden w-14 flex-col border-r border-gray-100 bg-gray-50 md:flex lg:w-56 lg:flex-shrink-0 lg:px-4">
+                <div class="flex h-0 flex-1 flex-col overflow-y-auto pt-3 pb-4 lg:pt-5">
+                    <header class="items-center justify-between md:hidden lg:flex">
+                        <a class="px-4" href="/event-types">
+                            <h1 class="logo inline">
+                                <strong>
+                                </strong>
+                            </h1>
+                        </a>
+                        <div class="flex space-x-2">
+                            <button color="minimal" class="desktop-only group flex text-sm font-medium text-neutral-500 hover:text-neutral-900">
+                                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 flex-shrink-0 text-neutral-500 group-hover:text-neutral-900" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                                    <polyline points="12 19 5 12 12 5"></polyline>
+                                </svg>
+                            </button>
+                            <button color="minimal" class="desktop-only group flex text-sm font-medium text-neutral-500 hover:text-neutral-900">
+                                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 flex-shrink-0 text-neutral-500 group-hover:text-neutral-900" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                    </header>
+                    <hr class="desktop-only absolute -left-3 -right-3 mt-4 block w-full border-gray-200">
+                    <a class="text-center md:inline lg:hidden">
+                        <h1 class="logo inline">
+                            <strong>
+                                <img class="mx-auto w-9" alt="ScraperX" title="Cal" src="img/scraperx_logo.png">
+                            </strong>
+                        </h1>
+                    </a>
+                    <nav id="ChoicesContanainerId" class="mt-2 flex-1 space-y-1 md:px-2 lg:mt-5 lg:px-0">
+                        <a aria-label="Event Types" onclick="clickOnCollect();" id="collect-id" class="group clickabale flex items-center rounded-md py-2 px-3 text-sm font-medium text-gray-600 hover:bg-gray-100 lg:px-[14px]  [&amp;[aria-current='page']]:bg-gray-200 [&amp;[aria-current='page']]:hover:text-neutral-900 [&amp;[aria-current='page']]:text-brand-900 ">
+                            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 flex-shrink-0 text-gray-500 ltr:mr-3 rtl:ml-3 [&amp;[aria-current='page']]:text-inherit" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <span class="hidden w-full justify-between lg:flex">
+                                <div class="flex">Factory</div>
+                            </span>
+                        </a>
+                        <a aria-label="Bookings" onclick="navToViewer();" id="view-id" class="group flex clickabale items-center rounded-md py-2 px-3 text-sm font-medium text-gray-600 hover:bg-gray-100 lg:px-[14px]  [&amp;[aria-current='page']]:bg-gray-200 [&amp;[aria-current='page']]:hover:text-neutral-900 [&amp;[aria-current='page']]:text-brand-900 ">
+                            <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 flex-shrink-0 text-gray-500 ltr:mr-3 rtl:ml-3 [&amp;[aria-current='page']]:text-inherit" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <span class="hidden w-full justify-between lg:flex">
+                                <div class="flex">View</div>
+                            </span>
+                        </a>
+
+
+
+                        <div class="text-gray-500 lg:hidden">
+                            <button color="minimal" class="group flex rounded-md py-2 px-3 text-sm font-medium hover:bg-gray-100 lg:p-1 lg:hover:bg-gray-200 lg:hover:text-neutral-900" data-state="closed">
+                                <svg class="hide" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 flex-shrink-0 text-inherit" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </nav>
+                </div>
+                <div data-testid="user-dropdown-trigger">
+                    <span class="hidden lg:inline">
+                        <button class="group flex w-full cursor-pointer appearance-none items-center rounded-full p-2 text-left outline-none hover:bg-gray-100 sm:pl-3 md:rounded-none lg:pl-2" type="button" id="radix-:r6k:" aria-haspopup="menu" data-state="closed">
+                            <span class="h-9 w-9 ltr:mr-2 rtl:ml-3 relative flex-shrink-0 rounded-full bg-gray-300 ">
+                                <img class="rounded-full" src="img/scraperx_logo.png" alt="fjshdfl">
+                                <div class="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-white bg-green-500"></div>
+                            </span>
+                            <span class="flex flex-grow items-center truncate">
+                                <span class="flex-grow truncate text-sm">
+                                    <span class="block truncate font-medium text-gray-900">ScraperX</span>
+                                </span>
+                                <svg class="hide" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 flex-shrink-0 text-gray-400 group-hover:text-gray-500" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                    <circle cx="12" cy="5" r="1"></circle>
+                                    <circle cx="12" cy="19" r="1"></circle>
+                                </svg>
+                            </span>
+                        </button>
+                    </span>
+                    <span class="hidden md:inline lg:hidden">
+                        <button class="group flex w-full cursor-pointer appearance-none items-center rounded-full p-2 text-left outline-none hover:bg-gray-100 sm:pl-3 md:rounded-none lg:pl-2" type="button" id="radix-:r6m:" aria-haspopup="menu" data-state="closed">
+                            <span class="h-8 w-8 relative flex-shrink-0 rounded-full bg-gray-300 ">
+                                <img class="rounded-full" src="img/scraperx_logo.png" alt="scraperXLogo">
+                                <div class="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-white bg-green-500"></div>
+                            </span>
+                        </button>
+                    </span>
+                </div>
+                <small style="font-size: 0.5rem;" class="mx-3 mt-1 mb-2 hidden opacity-50 lg:block">
+                    ©ScraperX v<span class="lowercase" data-testid="plan-trial">1.0</span>
+                </small>
+            </aside>
+            <div class="flex w-0 flex-1 flex-col overflow-hidden">
+                <main class="relative z-0 flex flex-1 flex-col overflow-y-auto bg-white focus:outline-none ">
+                    <nav class="fixed z-40 flex w-full items-center justify-between border-b border-gray-200 bg-gray-50 bg-opacity-50 py-1.5 px-4 backdrop-blur-lg sm:relative sm:p-4 md:hidden">
+                        <a href="/event-types">
+                            <h1 class="logo inline">
+                                <strong>
+                                    <img class="h-5 w-auto" alt="Cal" title="Cal" src="img/scraperx_logo.png">
+                                </strong>
+                            </h1>
+                        </a>
+
+                    </nav>
+
+                    <div class="overflow-none fixed z-40 m-0 h-screen w-screen overscroll-none bg-black opacity-50 hidden"></div>
+                    <div class="px-4 py-2 lg:py-8 lg:px-12">
+                        <div class="pt-14 sm:hidden"></div>
+
+                        <div class="flex items-baseline sm:mt-0">
+                            <div class="click-drop-down">
+                                <div class="drop-down" id="dro1">
+                                    <ul>
+                                        <li id="db">database</li>
+                                        <li id="cl" onclick="restartOriginalTable();changeBtnText('Save');ShowAgencyRegisterForm();">client</li>
+                                    </ul>
+                                </div>
+                                <div id="hoho" class="fixed right-4 bottom-[75px] z-40  cta mb-4 flex-shrink-0 sm:relative sm:bottom-auto sm:right-auto">
+                                    <button type="button" onclick="waitForScraper();" class="inline-flex items-center text-sm font-medium relative h-9 px-4 py-2.5   rounded-md border border-transparent text-white bg-brand-500 hover:bg-brand-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500">
+                                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="inline-block h-3.5 w-3.5 text-white group-hover:text-black ltr:mr-2 rtl:ml-2" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        </svg>Start
+                                    </button>
+                                </div>
+                            </div>
+                            <header class="mb-4 flex w-full items-center pt-4 md:p-0 lg:mb-10">
+                                <div class="w-full ltr:mr-4 rtl:ml-4 sm:block">
+                                    <h1 id="textt" class="font-cal mb-1 text-xl font-bold tracking-wide text-black">Welcome!</h1>
+                                    <p id="sub-text" class="hidden text-sm text-neutral-500 sm:block">Schedule scrapers for multiple platforms.</p>
+                                </div>
+
+                            </header>
+                        </div>
+
+
+                        <div class="">
+                            <div class="fields hide Regestier-fields" id="AgencyRegisterTableId">
+                                <div class="f1">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">Full name</label>
+                                    <input id="firstnameId" placeholder="" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+                                <div class="f1">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">Applying form</label>
+                                    <input id="applyingformId" placeholder="for ex: france" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+                                <div class="f1">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">Going to</label>
+                                    <input id="goingToId" placeholder="united states" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+                                <div class="f1">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">Email</label>
+                                    <input id="emailId" placeholder="" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+                                <div class="f1">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">Password</label>
+                                    <input id="pwdId" type="password" placeholder="" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+                                <div class="f1">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">Mobile</label>
+                                    <input id="mobileId" placeholder="" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+                                <div class="f1">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">Passport Number</label>
+                                    <input id="passportNumberId" placeholder="" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+                                <div class="f1">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">Center Number</label>
+                                    <input id="centerNumberId" placeholder="for ex: 2" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+                                <div class="f1">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">Visa Category Number</label>
+                                    <input id="visaCategoryNumId" placeholder="for ex: 1" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+                                <div class="f1">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">Date Of Birth</label>
+                                    <input id="dateOfBirthId" placeholder="d/m/y" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+                                <div class="f1">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">Passport Expiry Date</label>
+                                    <input id="PassportExpiryDateId" placeholder="d/m/y" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+                                <div class="f1">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">Nationality(UPPERCASE)</label>
+                                    <input id="NationalityUpperCaseId" placeholder="for ex: SPAIN" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+                                <div class="f1">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">Gender</label>
+                                    <input id="GenderId" placeholder="for ex: 2" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+                                <div class="f1">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">House Number</label>
+                                    <input id="HouseNumberId" placeholder="" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+                                <div class="f1">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">Street Address1</label>
+                                    <input id="StreetAddress1Id" placeholder="" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+
+                                <div class="f1">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">Postal Code</label>
+                                    <input id="PostalCodeId" placeholder="" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+
+                                <div class="f1">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">Street Address2</label>
+                                    <input id="StreetAddress2Id" placeholder="" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+                                <div class="f1 right-ls">
+                                    <label class="mb-2 block text-sm font-medium leading-none text-gray-700" for="radix-:r45:">Desired Month</label>
+                                    <input id="DesiredMonthId" placeholder="" class="mb-2 block h-9 w-full rounded-md border border-gray-300 py-2 px-3 text-sm placeholder:text-gray-400 hover:border-gray-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-1" name="title">
+                                </div>
+                                <div class="svbtn" id="BtnSave">
+
+                                    <button type="button" onclick="SaveBtnClickPerform();" id="save1" class="inline-flex items-center text-sm font-medium relative h-9 px-4 py-2.5   rounded-md border border-transparent text-white bg-brand-500 hover:bg-brand-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500">
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div data-testid="empty-screen" id="empty" class="min-h-80 flex w-full flex-col items-center justify-center rounded-md border border-dashed p-7 lg:p-20">
+                                <div class="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-gray-200 dark:bg-white">
+
+
+                                    <img src="img/scraperx_logo.png" id="main_logo" />
+
+                                </div>
+                                <div class="flex max-w-[420px] flex-col items-center">
+                                    <h2 id="status-msg" class="text-semibold font-cal mt-6 text-xl dark:text-gray-300">No scraper running.</h2>
+                                    <p class="mt-3 mb-8 text-center text-sm font-normal leading-6 text-gray-700 dark:text-gray-300">Click Factory to add a new Scraper.</p>
+                                    <button onclick="clickOnCollect();" id="crdb" type="button" class="inline-flex items-center text-sm font-medium relative h-9 px-4 py-2.5   rounded-md border border-gray-200 text-brand-900 bg-white hover:bg-gray-100">Factory</button>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <nav class="bottom-nav fixed bottom-0 z-30 -mx-4 flex w-full border border-t border-gray-200 bg-gray-50 bg-opacity-40 px-1 shadow backdrop-blur-md md:hidden">
+                            <a onclick="clickOnCollect()" class="relative my-2 min-w-0 flex-1 clickabale overflow-hidden rounded-md py-2 px-1 text-center text-xs font-medium text-neutral-400 hover:bg-gray-200 hover:text-gray-700 focus:z-10 sm:text-sm [&amp;[aria-current='page']]:text-gray-900">
+                                <div class="svg-register-mobile">
+                                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 flex-shrink-0 text-gray-500 ltr:mr-3 rtl:ml-3 [&amp;[aria-current='page']]:text-inherit" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                </div>
+                                <span class="block truncate">Collect</span>
+                            </a>
+
+                            <a onclick="navToViewer();" class="relative my-2 min-w-0 clickabale flex-1 overflow-hidden rounded-md py-2 px-1 text-center text-xs font-medium text-neutral-400 hover:bg-gray-200 hover:text-gray-700 focus:z-10 sm:text-sm [&amp;[aria-current='page']]:text-gray-900">
+                                <div class="absolute right-1 top-1"></div>
+                                <div class="svg-register-mobile">
+                                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 flex-shrink-0 text-gray-500 ltr:mr-3 rtl:ml-3 [&amp;[aria-current='page']]:text-inherit" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                </div>
+                                <span class="block truncate">View</span>
+                            </a>
+                        </nav>
+                        <div class="block pt-12 md:hidden"></div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <next-route-announcer>
+        <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px none; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">Vfs Appointments Scheduler</p>
+    </next-route-announcer>
+
+    <script>
+        $(function () {
+            $(".ddl-select").each(function () {
+                $(this).hide();
+                var $select = $(this);
+                var _id = $(this).attr("id"); // list
+                var wrapper = document.createElement("div");
+                wrapper.setAttribute("class", "ddl ddl_" + _id);
+
+                var input = document.createElement("input");
+                input.setAttribute("type", "text");
+                input.setAttribute("class", "ddl-input");
+                input.setAttribute("id", "ddl_" + _id);
+                input.setAttribute("readonly", "(readonly)");
+                input.setAttribute(
+                    "placeholder",
+                    $(this)[0].options[$(this)[0].selectedIndex].innerText
+                );
+
+                $(this).before(wrapper);
+                var $ddl = $(".ddl_" + _id);
+                $ddl.append(input);
+                $ddl.append("<div class='ddl-options ddl-options-" + _id + "'></div>");
+                var $ddl_input = $("#ddl_" + _id);
+                var $ops_list = $(".ddl-options-" + _id);
+                var $ops = $(this)[0].options;
+                for (var i = 0; i < $ops.length; i++) {
+                    $ops_list.append(
+                        "<div data-value='" +
+                        $ops[i].value +
+                        "'>" +
+                        $ops[i].innerText +
+                        "</div>"
+                    );
+                }
+
+                $ddl_input.click(function () {
+                    $ddl.toggleClass("active");
+                });
+                $ddl_input.blur(function () {
+                    $ddl.removeClass("active");
+                });
+                $ops_list.find("div").click(function () {
+                    $select.val($(this).data("value")).trigger("change");
+                    $ddl_input.val($(this).text());
+                    $ddl.removeClass("active");
+                });
+            });
+        });
+
+
+    </script>
+
+    <script>
+        function showMaroofOptions() {
+            document.getElementById("gold-or-selver-check-box").classList.remove("hide");
+            document.getElementById("maaroff_elemnts_1").classList.remove("hide");
+            document.getElementById("second-work-and-city").classList.remove("hide");
+        }
+
+        function hideMaroofOptions() {
+            document.getElementById("gold-or-selver-check-box").classList.add("hide");
+            document.getElementById("maaroff_elemnts_1").classList.add("hide");
+            document.getElementById("second-work-and-city").classList.add("hide");
+        }
+
+        $("#list").change(function () {
+            //Get the selected value from the dropdown
+            const selectedValue = $(this).val();
+            if (selectedValue == "2") {
+                showMaroofOptions();
+            } else {
+                hideMaroofOptions();
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        function clickOnCollect() {
+            document.getElementById("blackBackground").classList.remove("hide");
+            document.getElementById("Popup-menu").classList.remove("hide");
+        }
+
+        function closeCollectPopUp() {
+            document.getElementById("blackBackground").classList.add("hide");
+            document.getElementById("Popup-menu").classList.add("hide");
+        }
+
+        function readfileList(inputFile) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsText(inputFile);
+                reader.onload = () => {
+                    const lines = reader.result.split('\n');
+                    resolve(lines);
+                };
+                reader.onerror = () => {
+                    reject(reader.error);
+                };
+            });
+        }
+
+
+       
+
+
+       function getKeywords() {
+          const textarea = document.getElementById("keyword-list-id");
+          const lines = textarea.value.split("\n").map(line => line.trim());
+          return lines;
+        }
+
+
+        function showToastSuccess(msg) {
+            toastr.success(msg, 'ScraperX')
+        }
+
+        function showToastError(msg) {
+            toastr.error(msg, 'ScraperX')
+        }
+
+        //get selected option
+        function getSelectedOptionFrom(targetId) {
+            var dropdown = document.getElementById(targetId);
+            var selectedOption = dropdown.options[dropdown.selectedIndex];
+            var selectedOptionText = selectedOption.text;
+            if (dropdown.selectedIndex === 0) {
+                return "";
+            }
+            return selectedOptionText;
+        }
+
+        function getInputText(targetId) {
+            var inputElement = document.getElementById(targetId);
+            var inputText = inputElement.value;
+            return inputText;
+        }
+
+
+        function clearInput(id) {
+            const input = document.getElementById(id);
+            input.value = '';
+        }
+
+
+        function getSelectedPlatformforCollect() {
+            selectedPlatform = getSelectedOptionFrom("list")
+            return selectedPlatform;
+        }
+
+        function getSelectedsaveTypeforCollect() {
+            selectedScraper = getSelectedOptionFrom("list2")
+            return selectedScraper;
+        }
+
+        function getCollectFolderName() {
+            return getInputText("Collect-folder-name");
+        }
+
+        function getCollectFileName() {
+            return getInputText("collect-file-id");
+        }
+
+        function getCollectChromeInput() {
+            return getInputText("chrome-version-id");
+        }
+
+
+        function clearCollectInputs() {
+            clearInput("Collect-folder-name");
+            clearInput("collect-file-id");
+            document.querySelector('input[type="file"]').value = null;
+        }
+
+        async function printWellcomeMessage() {
+            running = await eel.get_running()();
+            finished = await eel.get_finished()();
+            msg = String(running) + " Scrapers Running, " + String(finished) + " Finished.";
+            statusElem = document.getElementById("status-msg");
+            statusElem.innerText = msg;
+        }
+
+        window.onload = function () {
+            printWellcomeMessage();
+        }();
+
+
+
+        async function addCollectScraper() {
+            platform = getSelectedPlatformforCollect();
+            save_file = getSelectedsaveTypeforCollect();
+            folder_name = getCollectFolderName();
+            file_name = getCollectFileName();
+
+            var main_work = "";
+            var second_work = "";
+            var country = "";
+            var city = "";
+            var goldOrSilver = "";
+
+            if (platform == "maroof") {
+                main_work = getSelectedOptionFrom("main-work-select");
+                second_work = getSelectedOptionFrom("main-work-select-2");
+                country = getSelectedOptionFrom("country-select");
+                city = getSelectedOptionFrom("country-select-2");
+                const goldRadio = document.getElementById("gold-radio");
+                const silverRadio = document.getElementById("silver-radio");
+                if (goldRadio.checked) {
+                    goldOrSilver = "1";
+                }
+                if (silverRadio.checked) {
+                    goldOrSilver = "2";
+                }
+
+            }
+
+
+            if (platform === "" || save_file === "" || folder_name === "" || file_name === "") {
+                showToastError("Empty scraper informations.");
+                return;
+            }
+           
+            const lines = getKeywords();
+
+
+            if (lines.length === 0) {
+                lines[0] = "";
+            }
+
+            is_added = await eel.add_scraper(folder_name, file_name, lines, platform, save_file)();
+            if (is_added == true) {
+                if (platform == "maroof") {
+                    is_added = eel.set_maroof_options(goldOrSilver, main_work, second_work, country, city)();
+                }
+                if (is_added) {
+                    showToastSuccess('New Scraper Added Successfully!', 'ScraperX');
+                    clearCollectInputs();
+                    closeCollectPopUp();
+                } else {
+                    showToastError("Failed to add Maroof Options.");
+                    return;
+                }
+
+            } else {
+                showToastError("Failed to add a new scraper.")
+            }
+        }
+
+    </script>
+
+    <script>
+        function waitForScraper() {
+            window.location.href = "wait.html";
+        }
+
+        function navToViewer() {
+            window.location.href = "viewer.html";
+        }
+
+var akhra = [""];
+var sayarat = ["اختر تصنيف العمل الفرعي","أخرى","اكسسوارات السيارات"];
+var al3a9arat = ["اختر تصنيف العمل الفرعي","بيع عقارات","ادارة عقارات","شراءعقارات","وسيط عقاري"];
+var aljamalwsaha = ["اختر تصنيف العمل الفرعي","كوافيرة وتجميل","الصحة واللياقة البدنية","مستلزمات المراة","أخرى"];
+var almanzil = ["اختر تصنيف العمل الفرعي","أثاث وديكور","أخرى"];
+var khadamatala3mal = ["اختر تصنيف العمل الفرعي","تصوير","حلول الكترونية","متاجر الكترونية","تصميم وطباعة","الخدمات اللوجستية","اخرى"];
+var hafalat = ["اختر تصنيف العمل الفرعي","مستلزمات الحفلات","تنسيق مناسبات وحفلات","أخرى"];
+var at3imawamachrobat = ["اختر تصنيف العمل الفرعي","مطبخ ومخبوزات","قهوة ومشروبات","أخرى"];
+var hadaya = ["اختر تصنيف العمل الفرعي","الحرف والصناعات اليدوية","متسوق شخصي","أخرى"];
+var alta3lim = ["اختر تصنيف العمل الفرعي","خدمات اكاديمية","دورات تعليمية","أخرى"];
+var iliktroniyat = ["اختر تصنيف العمل الفرعي","إلكترونيات واكسسوارات","أخرى"];
+
+// اختر المدينة
+
+var makaalmokarama = ['اختر المدينة','الطائف',
+'مكة المكرمة',
+'جدة',
+'رابغ',
+'الابواء',
+'حجر صعبر',
+'الصدر',
+'ابو حليفاء',
+'العقدة',
+'القرا',
+'بنى مالك',
+'بالحارث',
+'مستورة',
+'ترعة ثقيف',
+'ظـــــــلم',
+'خليص',
+'الكامل',
+'الخرمة',
+'الجمـوم',
+'عسفان',
+'مدركه',
+'الليث',
+'القنفذة',
+'ذهبان',
+'الحايط',
+'المويه',
+'غزايل',
+'قياء',
+'ابو راكه',
+'تربة الشـرائع',
+'رنيه',
+]
+var alchar9iya = ['اختر المدينة','الهفوف',
+'الدمام',
+'الخبر',
+'حفر الباطن',
+'ابن طوالة',
+'ابن شرار',
+'القطيف',
+'السفانية',
+'قرية العليا',
+'الجبيل',
+'النعيرية',
+'الاحساء',
+'الظهران',
+'بقيق',
+'عين دار',
+'صلاصل',
+'الثقبة',
+'سيهات',
+'تاروت',
+'قرى الإحساء',
+'الرقعي',
+'الذيبية',
+'الصداوي',
+'ام قليب',
+'القيصومة',
+'قريه',
+' السعيرة',
+' حرض',
+'العيون',
+'صفوى',
+'الخفجي',
+' رأس تنورة',
+' رحيمة',
+'سلوى',
+'العقير',
+'الحنى',
+]
+var madinamonawara = ['اختر المدينة','المدينة المنورة',
+'العين الجديدة',
+'العلا',
+'الجرف',
+'مهد الذهب',
+'العدوة',
+'ينبع',
+'البركة',
+'الجهراء',
+'خيبر',
+'الصلصلة',
+'الثمد',
+'المهد',
+'السويرقيه',
+'ثرب',
+'العمق',
+'الشقران',
+'الحناكية',
+'الحسو',
+'بدر',
+'الواسطة',
+'المسيجيد',
+'وادي الفرع',
+'المليليح',
+'الشقره',
+'الصويدرة',
+'الفريش',
+]
+var tabok = ['اختر المدينة','تبوك',
+'حقل',
+'الوجه',
+'املج',
+'القحزه',
+'البئر',
+'حالة عمار',
+'قيال',
+'مقنا',
+'تيماء',
+'فجر',
+'القليبه',
+'المعظم',
+'شواق',
+'ضباء',
+'الخريبة',
+'شرما',
+'المويلح',
+'الديسه',
+'الشرف',
+]
+var jof = ['اختر المدينة','هــديـب',
+'القريات',
+'صـــوير',
+'اللقـائـــط',
+'طبرجل',
+'قارا',
+'زلــــوم',
+'دومة الجندل',
+'الاضارع',
+'سكاكا',
+]
+var alhododalchamaliya = ['اختر المدينة','طريف',
+'رفحا',
+'عرعر',
+]
+var al9assim = ['اختر المدينة','بريدة',
+'عنيزة',
+'الفايزية',
+'نقرة العمارين',
+'أبلق',
+'أم مكرية',
+'الصباخ',
+'البصر',
+'المليداء',
+'القوارة',
+'السر',
+'البطــين',
+'شري',
+'مــدرج',
+'قبــه',
+'الذيبية',
+'الأسياح',
+'ضليع رشيد',
+'البتــراء',
+'دخنة',
+'الرس',
+'المذنب',
+'البدائع',
+'الخبراء',
+'البكيريه',
+'ام حــزم',
+'القـريـن',
+'الدليميــه',
+'عقلة الصقور',
+'النبهانيه',
+'ضريه',
+]
+var albaha = ['اختر المدينة','القري',
+'بلجرشي',
+'بني حسن',
+'العقيق',
+'المندق',
+'دوس',
+'قلوي',
+'الشعـــــراء',
+'غامد الزناد',
+'المخواه',
+'الباحة',
+]
+var najran = ['اختر المدينة','العبيلة',
+'يدمه',
+'بدر الجنوب',
+'شرورة',
+'الوديعة',
+'حبونا',
+'نجران',
+]
+var jazan = ['اختر المدينة','جازان',
+'الداير بني مالك',
+'جيزان',
+'فيفا',
+'هروب',
+'بيش',
+'صبيا',
+'ضمد',
+'الشقيري',
+'بحرة',
+'ابو عريش',
+'صامطة',
+'فرسان',
+'القحمة',
+'احد المسارحة',
+]
+var haiil = ['اختر المدينة','حائل',
+'الحليقه',
+'قرى حائل',
+'الشنان',
+'طابه',
+'الكهفة',
+'الشملي',
+'الخطة',
+'جبه',
+'موقق',
+'بقعاء',
+'تربة',
+'ضرغط',
+'السليمي',
+]
+var assir = ['اختر المدينة','ابها',
+'خميس مشيط',
+'احد رفيده',
+'المجاردة',
+'بيشه',
+'تثليث',
+'محايل',
+'قناءوالبحر',
+'رجال ألمع',
+'النماص',
+'تنومة',
+'سراة عبيدة',
+'الربوعة',
+'بني عمرو',
+'ظهران الجنوب',
+'سبت العلايه',
+]
+var alriyad = ['اختر المدينة','الرياض',
+'المجمعة',
+'الودي',
+'جلاجل',
+'حوطة سدير',
+'روضة سدير',
+'تمير',
+'الارطاويه',
+'الرويضة',
+'الفيصلية',
+'الحائر',
+'مبايض',
+'الروضة',
+'الزلفي',
+'سمنان',
+'رماح',
+'البلاد الوسطى',
+'القرارة',
+'القويعية',
+'البدايع',
+'عفيف',
+'ابرقية',
+'الجمانية',
+'الخضارة',
+'عبدة',
+'غسلة',
+'شقراء',
+'أم السباع',
+'الحريق',
+'العويجاء',
+'الدرعية',
+'الدوادمي',
+'الدمثي',
+'كبشان',
+'الجمش',
+'ساجر',
+'عين القنور',
+'الرفائع',
+'الحزيمية',
+'الحزم',
+'حريملاء',
+'هيت',
+'ثرمداء',
+'أبا الكباش',
+'الجبيلة',
+'ضرما',
+'جو',
+'وعلة',
+'الوسيطاء',
+'الربواء',
+'البدع',
+'الافلاج',
+'الخماسين',
+'الخاصرة',
+'سدير',
+'شوية',
+'الغاط',
+'ثادق',
+'رغبة',
+'القصب',
+'البجادية',
+'ملهم',
+'مرات',
+'حلبان',
+'المزاحمية',
+'الخرج',
+'الدلم',
+'وادي الدواسر',
+'السليل',
+'حوطه بني تميم',
+]
+
+const firstSelect = document.getElementById("main-work-select");
+const secondSelect = document.getElementById("main-work-select-2");
+
+const firstSelect2 = document.getElementById("country-select");
+const secondSelect2 = document.getElementById("country-select-2");
+
+// Function to update the options of the second select based on the value of the first select
+function updateSecondSelect() {
+  const selectedValue = firstSelect.value;
+  console.log(selectedValue);
+  if (selectedValue === "أخرى") {
+    setSelectOptions(secondSelect, akhra);
+  } else if (selectedValue === "السيارات") {
+    setSelectOptions(secondSelect, sayarat);
+  }else if (selectedValue === "العقارات") {
+    setSelectOptions(secondSelect, al3a9arat);
+  }else if (selectedValue === "الجمال والصحة") {
+    setSelectOptions(secondSelect, aljamalwsaha);
+  }else if (selectedValue === "المنزل") {
+    setSelectOptions(secondSelect, almanzil);
+  }else if (selectedValue === "خدمات الأعمال") {
+    setSelectOptions(secondSelect, khadamatala3mal);
+  }else if (selectedValue === "حفلات") {
+    setSelectOptions(secondSelect, hafalat);
+  }else if (selectedValue === "أطعمة ومشروبات") {
+    setSelectOptions(secondSelect, at3imawamachrobat);
+  }else if (selectedValue === "هدايا") {
+    setSelectOptions(secondSelect, hadaya);
+  }else if (selectedValue === "التعليم") {
+    setSelectOptions(secondSelect, alta3lim);
+  }else if (selectedValue === "إلكترونيات") {
+    setSelectOptions(secondSelect, iliktroniyat);
+  }
+  
+
+}
+
+function updateSecondSelect2(){
+    const selectedValue2 = firstSelect2.value;
+    if (selectedValue2 === "منطقة مكة المكرمة") {
+    setSelectOptions(secondSelect2, makaalmokarama);
+  }else if (selectedValue2 === "الشرقية") {
+    setSelectOptions(secondSelect2, alchar9iya);
+  }else if (selectedValue2 === "منطقة المدينة المنورة") {
+    setSelectOptions(secondSelect2, madinamonawara);
+  }else if (selectedValue2 === "منطقة تبوك") {
+    setSelectOptions(secondSelect2, tabok);
+  }else if (selectedValue2 === "الجوف") {
+    setSelectOptions(secondSelect2, jof);
+  }else if (selectedValue2 === "الحدود الشمالية") {
+    setSelectOptions(secondSelect2, alhododalchamaliya);
+  }else if (selectedValue2 === "القصيم") {
+    setSelectOptions(secondSelect2, al9assim);
+  }else if (selectedValue2 === "الباحة") {
+    setSelectOptions(secondSelect2, albaha);
+  }else if (selectedValue2 === "منطقة نجران") {
+    setSelectOptions(secondSelect2, najran);
+  }else if (selectedValue2 === "منطقة جازان") {
+    setSelectOptions(secondSelect2, jazan);
+  }else if (selectedValue2 === "منطقة حائل") {
+    setSelectOptions(secondSelect2, haiil);
+  }else if (selectedValue2 === "منطقة عسير") {
+    setSelectOptions(secondSelect2, assir);
+  }else if (selectedValue2 === "منطقة الرياض") {
+    setSelectOptions(secondSelect2, alriyad);
+  }
+}
+
+// Helper function to set the available options for a select element
+function setSelectOptions(selectElement, optionsArray) {
+  selectElement.innerHTML = "";
+
+  optionsArray.forEach(optionValue => {
+    const optionElement = document.createElement("option");
+    optionElement.value = optionValue;
+    optionElement.text = optionValue;
+    selectElement.appendChild(optionElement);
+  });
+}
+
+// Attach event listener to first select element
+firstSelect.addEventListener("change", updateSecondSelect);
+firstSelect2.addEventListener("change", updateSecondSelect2);
+// Initialize the options of the second select based on the initial value of the first select
+//updateSecondSelect();
+
+    </script>
+
+</body>
+</html>

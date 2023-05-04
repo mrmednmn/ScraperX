@@ -1,0 +1,6 @@
+Eel
+selenium
+undetected-chromedriver
+openpyxl
+
+

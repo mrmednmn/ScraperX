@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="/eel.js"></script>
+    <title>ScraperX</title>
+    <style>
+        /* Global styles */
+        body {
+            background-color: #e4faee;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+
+        /* Style for the table */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 50px;
+        }
+
+            table th, table td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            table th {
+                background-color: #f2f2f2;
+                font-weight: bold;
+                color: #333;
+            }
+
+            table td {
+                background-color: #fff;
+            }
+
+        /* Style for the table container */
+        #tableContainer {
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow-x: auto;
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+
+        /* Style for the file input */
+        #fileInput {
+            display: none;
+        }
+
+
+
+        /* Style for the file name */
+        #fileName {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            position: relative;
+            background-color: #111827;
+            color: #ffffff;
+            font-size: 1.12em;
+            font-weight: 500;
+            text-align: center;
+            width: 18.75em;
+            padding: 1.12em 0;
+            margin: auto;
+            border-radius: 0.31em;
+            cursor: pointer;
+        }
+
+        i.fa-solid.fa-arrow-right {
+            transform: rotate(180deg);
+        }
+
+        i.fa-solid.fa-arrow-up-from-bracket {
+            margin-right: 12px;
+        }
+
+        i.fa-solid.fa-arrow-right {
+            transform: rotate(180deg);
+            margin-right: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="tableContainer"></div>
+    <input type="file" id="fileInput" accept=".csv, .xlsx">
+    <br>
+    <label for="fileInput">Upload a file</label><br>
+    <label onclick="goToMain();" for="2">ScraperX</label>
+    <div id="fileName"></div>
+
+    <script src="viewer/js/xlsx.full.min.js"></script>
+    <script src="viewer/js/parseFile.js"></script>
+    <script>
+const fileInput = document.getElementById('fileInput');
+const fileName = document.getElementById('fileName');
+const tableContainer = document.getElementById('tableContainer');
+const label = document.querySelector('label[for="fileInput"]');
+
+// Automatically parse the file when it's selected
+fileInput.addEventListener('change', function () {
+            const file = this.files[0];
+            const ext = file.name.split('.').pop().toLowerCase();
+            if (['csv', 'xlsx'].includes(ext)) {
+                fileName.textContent = file.name;
+                parseFile(file, tableContainer);
+                label.textContent = 'Upload another file';
+            } else {
+                alert('Invalid file type. Please choose a CSV or XLSX file.');
+            }
+});
+
+    </script>
+
+    <script>
+        function goToMain(){
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
