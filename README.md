@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ScraperX README</title>
-</head>
+	<h>ScraperX</h1>
+</head>1
 <body>
 	<p>Dear users,</p>
 	<p>Thank you for choosing to use my open source project! If you have found it useful, please consider supporting its ongoing development by making a donation on PayPal. Your support will help me to continue improving and maintaining this project for the benefit of the wider community.</p>
@@ -16,13 +16,13 @@
 	<li>If you are using Git, you can easily clone this project by running the following command in your cmd:<br>
 	<code>git clone https://github.com/amzapis/ScraperX.git scraperX</code></li>
 
-	<li>Alternatively, you can download the project as a ZIP file by clicking the green "Code" button on GitHub and selecting "Download ZIP". After downloading and extracting the ZIP file, you can rename the main folder to "scraperX".</li>
+	Alternatively, you can download the project as a ZIP file by clicking the green "Code" button on GitHub and selecting "Download ZIP". After downloading and extracting the ZIP file, you can rename the main folder to "scraperX".
 
-	<li>Update google chrome go to Help->About Google Chrome to update your chrome browser, the default version used is 112, to manually change the chrome version: in gui/web/view.py change return 112 to return YOUR_CHEOME_VERSION_HERE</li>
+	Update google chrome go to Help->About Google Chrome to update your chrome browser, the default version used is 112, to manually change the chrome version: in gui/web/view.py change return 112 to return YOUR_CHEOME_VERSION_HERE
 
-	<li>Download and install Python 3.11 from <a href="https://www.python.org/">https://www.python.org/</a>, make sure to add Python to path during installation.</li>
+	Download and install Python 3.11 from <a href="https://www.python.org/">https://www.python.org/</a>, make sure to add Python to path during installation.
 
-	<li>Run ScraperX.exe or go to the main folder with cmd (admin mode preferred, open cmd with admin mode and write cd MAIN_FOLDER_PATH_HERE), and in the command prompt:</li>
+	Run ScraperX.exe or go to the main folder with cmd (admin mode preferred, open cmd with admin mode and write cd MAIN_FOLDER_PATH_HERE), and in the command prompt:
 	<ol>
 		<li>Write <code>python.exe -m pip install --upgrade pip</code></li>
 		<li>Write <code>pip install -r requirements.txt</code></li>
