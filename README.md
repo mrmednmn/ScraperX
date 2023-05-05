@@ -24,11 +24,11 @@
 
 	Run ScraperX.exe or go to the main folder with cmd (admin mode preferred, open cmd with admin mode and write cd MAIN_FOLDER_PATH_HERE), and in the command prompt:
 	
-		Write <code>python.exe -m pip install --upgrade pip</code>
-		Write <code>pip install -r requirements.txt</code>
-		To make sure the package is up to date, write <code>pip install -r requirements.txt --upgrade</code>
-		After packages are installed, write <code>cls</code> to clean the command prompt.
-		Write <code>main.py</code> or <code>python main.py</code> to run the tool.
+		Write python.exe -m pip install --upgrade pip
+		Write pip install -r requirements.txt
+		To make sure the package is up to date, write pip install -r requirements.txt --upgrade
+		After packages are installed, write cls to clean the command prompt.
+		Write main.py or <code>python main.py  to run the tool.
 	
 </ul>
 
