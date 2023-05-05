@@ -23,7 +23,7 @@
 	<li>Download and install Python 3.11 from <a href="https://www.python.org/">https://www.python.org/</a>, make sure to add Python to path during installation.</li>
 
 	<li>Run ScraperX.exe or go to the main folder with cmd (admin mode preferred, open cmd with admin mode and write cd MAIN_FOLDER_PATH_HERE), and in the command prompt:</li>
-	<ol type="1">
+	<ol>
 		<li>Write <code>python.exe -m pip install --upgrade pip</code></li>
 		<li>Write <code>pip install -r requirements.txt</code></li>
 		<li>To make sure the package is up to date, write <code>pip install -r requirements.txt --upgrade</code></li>
