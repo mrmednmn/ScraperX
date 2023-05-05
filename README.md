@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-</head>1
+</head>
 <body>
 	<p>Dear users,</p>
 	<p>Thank you for choosing to use my open source project! If you have found it useful, please consider supporting its ongoing development by making a donation on PayPal. Your support will help me to continue improving and maintaining this project for the benefit of the wider community.</p>
