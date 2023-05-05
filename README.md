@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<h>ScraperX</h1>
 </head>1
 <body>
 	<p>Dear users,</p>
