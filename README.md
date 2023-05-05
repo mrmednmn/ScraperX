@@ -23,13 +23,13 @@
 	Download and install Python 3.11 from <a href="https://www.python.org/">https://www.python.org/</a>, make sure to add Python to path during installation.
 
 	Run ScraperX.exe or go to the main folder with cmd (admin mode preferred, open cmd with admin mode and write cd MAIN_FOLDER_PATH_HERE), and in the command prompt:
-	<ol>
-		<li>Write <code>python.exe -m pip install --upgrade pip</code></li>
-		<li>Write <code>pip install -r requirements.txt</code></li>
-		<li>To make sure the package is up to date, write <code>pip install -r requirements.txt --upgrade</code></li>
-		<li>After packages are installed, write <code>cls</code> to clean the command prompt.</li>
-		<li>Write <code>main.py</code> or <code>python main.py</code> to run the tool.</li>
-	</ol>
+	
+		Write <code>python.exe -m pip install --upgrade pip</code>
+		Write <code>pip install -r requirements.txt</code>
+		To make sure the package is up to date, write <code>pip install -r requirements.txt --upgrade</code>
+		After packages are installed, write <code>cls</code> to clean the command prompt.
+		Write <code>main.py</code> or <code>python main.py</code> to run the tool.
+	
 </ul>
 
 <p>A few important notes for users of this program:</p>
